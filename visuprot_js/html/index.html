@@ -3,19 +3,57 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Protein Viewer</title>
 </head>
 
 <body>
+    <header>
+      <h1>Protein Viewer</h1>
+    </header>
+
+    <h2>Protein Visualization</h2>
+    <div id="ui1">
+      <div class="element">
+          PDB ID: <input id = "field1" type="text" spellcheck="false" placeholder="Enter a PDB ID..."/>
+        </div>
+      <div class="element">
+        <button onclick="displayProtein()">Display</button>
+      </div>
+    </div>
+
+    <div id="representations">
+      <div class="element">
+        <button type="button" onclick="displayCartoon()">Cartoon</button>
+      </div>
+    </div>
+
+    <div id="viewport" style="width:400px; height:300px;"></div>
+
+    <h2>Protein Information</h2>
+
     <script src="../ngl/dist/ngl.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var stage = new NGL.Stage("viewport");
-            stage.loadFile("rcsb://5WOG", {
-                defaultRepresentation: true
-            });
+      var stage = new NGL.Stage("viewport");
+
+      function displayProtein(){
+        var idPdb = document.getElementById("field1").value;
+        console.log(idPdb);
+        stage.loadFile("rcsb://"+idPdb).then(function (component) {
+        // add a "cartoon" representation to the structure component
+        component.addRepresentation("cartoon");
+        // provide a "good" view of the structure
+        component.autoView();
         });
+      }
+
+      function displayCartoon(){
+        console.log("Cartoon");
+        stage.compList[0].addRepresentation("cartoon");
+        stage.compList[0].autoView();
+      }
+
     </script>
-    <div id="viewport" style="width:400px; height:300px;"></div>
 </body>
 
 </html>
