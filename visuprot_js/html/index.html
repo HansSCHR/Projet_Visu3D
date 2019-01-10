@@ -30,6 +30,12 @@
 
     <div id="viewport" style="width:400px; height:300px;"></div>
 
+    <div id="export">
+      <div class="element">
+        <button type="button" onclick="exportPNG()">Export PNG</button>
+      </div>
+    </div>
+
     <h2>Protein Information</h2>
 
     <script src="../ngl/dist/ngl.js"></script>
@@ -51,6 +57,18 @@
         console.log("Cartoon");
         stage.compList[0].addRepresentation("cartoon");
         stage.compList[0].autoView();
+      }
+
+      function exportPNG(){
+        console.log('Exporting as PNG');
+        stage.makeImage( {
+            factor: 1,
+            antialias: true,
+            trim: false,
+            transparent: false
+          } ).then( function( blob ){
+          NGL.download( blob, "screenshot.png" );
+        } );
       }
 
     </script>
