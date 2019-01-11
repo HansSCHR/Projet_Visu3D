@@ -45,6 +45,10 @@
       </div>
     </div>
 
+    <div id="fullscreen">
+      <button type="button">Fullscreen</button>
+    </div>
+
     <h2>Protein Information</h2>
 
     <script src="../ngl/dist/ngl.js"></script>
@@ -87,6 +91,13 @@
           } ).then( function( blob ){
           NGL.download( blob, "screenshot.png" );
         } );
+      }
+
+      // Fullscreen
+
+      function setFullscreen(){
+        console.log('Setting fullscreen');
+        stage.toggleFullscreen();
       }
 
     </script>
