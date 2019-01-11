@@ -27,6 +27,14 @@ h1
     align-items: center;
 }
 
+#representationType
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-content: center;
+}
+
 @font-face {
   font-family: 'Rubik-Regular';
   src: url('fonts/rubik/Rubik-Regular.ttf') format('truetype');
