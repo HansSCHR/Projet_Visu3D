@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div id="viewport" style="width:400px; height:300px;"></div>
+      <div id="viewport" style="width:500px; height:400px;"></div>
 
       <div id="options">
         <div id="export">
@@ -56,6 +56,11 @@
     </div>
 
     <h2>Protein Information</h2>
+
+    <div id="proteinInfo">
+      <p id="idpdb"></p>
+      <p id="name"></p>
+    </div>
 
     <!-- Infos -->
 
@@ -76,6 +81,10 @@
         rep = component.addRepresentation("cartoon");
         // Provides a "good" view of the structure
         component.autoView();
+        // Display protein info
+        document.getElementById("idpdb").innerHTML = "ID PDB : "+component.structure.id;
+        document.getElementById("name").innerHTML = "Name : "+component.structure.title;
+        console.log(component.structure.header);
         });
       }
 
@@ -84,8 +93,16 @@
       function changeRepresentation(repType){
         rep.setVisibility(false);
         console.log("Displaying "+repType+" representation");
-        rep = stage.compList[0].addRepresentation(repType);
-        stage.compList[0].autoView();
+        rep = stage.compList[0].addRepresentation(repType, {
+          color: 'chainindex',
+          colorReverse: true
+        })
+        stage.compList[0].addRepresentation('licorice', {
+          sele: 'ligand',
+          scale: 3.0
+        })
+        stage.compList[0]=component;
+        component.autoView();
       }
 
       // Export functions
