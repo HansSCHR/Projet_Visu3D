@@ -13,43 +13,51 @@
     </header>
 
     <h2>Protein Visualization</h2>
-    <div id="ui1">
-      <div class="element">
-          PDB ID: <input id = "field1" type="text" spellcheck="false" placeholder="Enter a PDB ID..."/>
+
+    <!-- Visu -->
+    <div id="nglview">
+      <div id="ui1">
+        <div class="element">
+            PDB ID: <input id = "field1" type="text" spellcheck="false" placeholder="Enter a PDB ID..."/>
+          </div>
+        <div class="element">
+          <button onclick="displayProtein()">Display</button>
         </div>
-      <div class="element">
-        <button onclick="displayProtein()">Display</button>
       </div>
-    </div>
 
-    <div id="representationType">
-      <div class="element">
-        <button type="button" onclick="changeRepresentation('cartoon')">Cartoon</button>
+      <div id="representationType">
+        <div class="element">
+          <button type="button" onclick="changeRepresentation('cartoon')">Cartoon</button>
+        </div>
+        <div class="element">
+          <button type="button" onclick="changeRepresentation('surface')">Surface</button>
+        </div>
+        <div class="element">
+          <button type="button" onclick="changeRepresentation('ball+stick')">Ball & Stick</button>
+        </div>
+        <div class="element">
+          <button type="button" onclick="changeRepresentation('backbone')">Backbone</button>
+        </div>
       </div>
-      <div class="element">
-        <button type="button" onclick="changeRepresentation('surface')">Surface</button>
-      </div>
-      <div class="element">
-        <button type="button" onclick="changeRepresentation('ball+stick')">Ball & Stick</button>
-      </div>
-      <div class="element">
-        <button type="button" onclick="changeRepresentation('backbone')">Backbone</button>
-      </div>
-    </div>
 
-    <div id="viewport" style="width:400px; height:300px;"></div>
+      <div id="viewport" style="width:400px; height:300px;"></div>
 
-    <div id="export">
-      <div class="element">
-        <button type="button" onclick="exportPNG()">Export PNG</button>
+      <div id="options">
+        <div id="export">
+          <div class="element">
+            <button type="button" onclick="exportPNG()" title="Click to export the PNG of the current representation">Export PNG</button>
+          </div>
+        </div>
+
+        <div id="fullscreen">
+          <button type="button" onclick="setFullscreen()" title="Exit fullscreen mode using Escape">Fullscreen</button>
+        </div>
       </div>
-    </div>
-
-    <div id="fullscreen">
-      <button type="button" onclick="setFullscreen()">Fullscreen</button>
     </div>
 
     <h2>Protein Information</h2>
+
+    <!-- Infos -->
 
     <script src="../ngl/dist/ngl.js"></script>
     <script>
@@ -64,6 +72,7 @@
         // Loads new stage component
         stage.loadFile("rcsb://"+idPdb).then(function (component) {
         // Add a "cartoon" representation to the structure component
+        stage.compList[0]=component;
         rep = component.addRepresentation("cartoon");
         // Provides a "good" view of the structure
         component.autoView();

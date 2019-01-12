@@ -6,34 +6,26 @@ Fichier CSS de la page d'accueil de l'outil de visu
 body
 {
   font-family: Rubik-Regular;
-}
-
-h1
-{
   text-align: center;
 }
 
-#viewport
+#nglview
 {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-#ui1
+#representationType, #options, #ui1
 {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-}
-
-#representationType
-{
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: space-evenly;
   align-content: center;
 }
+
 
 @font-face {
   font-family: 'Rubik-Regular';
