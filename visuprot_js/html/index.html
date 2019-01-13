@@ -32,8 +32,8 @@
                     Information
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">About the Authors</a>
-                    <a class="dropdown-item" href="#">How to use Protein Viewer</a>
+                    <a class="dropdown-item" href="#"><i class="fab fa-creative-commons-by"></i>&nbsp  About the Authors</a>
+                    <a class="dropdown-item" href="#"><i class="far fa-question-circle"></i> &nbsp  How to use Protein Viewer</a>
                   </div>
                 </li>
                 <!-- <li class="nav-item">
@@ -73,7 +73,7 @@
 </div>
       </div> <!--  FIN row1 -->
       
-      <div class="col-auto my-1">
+      <!-- <div class="col-auto my-1">
           <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
             <option selected></i>&nbsp Choose style...</option>
@@ -82,10 +82,23 @@
             <option value="3"onclick="changeRepresentation('ball+stick')">Ball & Stick</option>
             <option value="4"onclick="changeRepresentation('backbone')">Backbone</option>  
           </select>
-        </div>
-      <div class="row">
-          <div class="col">
-            </div>
+        </div> -->
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-outline-dark active">
+              <input type="radio" autocomplete="off" checked  > <option value="1"  onclick="changeRepresentation('cartoon')" >Cartoon</option>
+            </label>
+            <label class="btn btn-outline-dark">
+              <input type="radio"  autocomplete="off" > <option value="2" onclick="changeRepresentation('surface')">Surface</option>
+            </label>
+            <label class="btn btn-outline-dark">
+              <input type="radio"  autocomplete="off"> <option value="3"onclick="changeRepresentation('ball+stick')">Ball & Stick</option>
+            </label>
+            <label class="btn btn-outline-dark">
+                <input type="radio"  autocomplete="off">  <option value="4"onclick="changeRepresentation('backbone')">Backbone</option>  
+              </label>
+          </div>
+    
 </div> <!--  FIN row2 -->
 
     </div> <!-- container -->
