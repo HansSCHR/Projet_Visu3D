@@ -3,16 +3,52 @@
 
 <head>
     <meta charset="utf-8">
+    <title>Visualisation 3D </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/index.css">
     <title>Protein Viewer</title>
 </head>
 
 <body>
-    <header>
-      <h1><img src="../logo.png" alt="logo" height="100px"></h1>
-    </header>
 
-    <h2>Protein Visualization</h2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="../img/logo.png" alt="Logo"  style="width:6%">
+            <a class="navbar-brand" href="#" style="margin-left: 5%"> 3D Protein Viewer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="#">Informations</a>
+                </li> -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Information
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">About the Authors</a>
+                    <a class="dropdown-item" href="#">How to use Protein Viewer</a>
+                    <!-- <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a> -->
+                  </div>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li> -->
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Enter a PDB ID" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Display</button>
+              </form>
+            </div>
+          </nav>
+
+
 
     <!-- Visu -->
     <div id="nglview">
