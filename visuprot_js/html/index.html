@@ -50,25 +50,44 @@
           </nav>
 
           
-
-    <!-- Visu -->
-    <div id="nglview">
-      <div id="representationType">
-        <div class="element">
-          <button type="button" onclick="changeRepresentation('cartoon')">Cartoon</button>
-        </div>
-        <div class="element">
-          <button type="button" onclick="changeRepresentation('surface')">Surface</button>
-        </div>
-        <div class="element">
-          <button type="button" onclick="changeRepresentation('ball+stick')">Ball & Stick</button>
-        </div>
-        <div class="element">
-          <button type="button" onclick="changeRepresentation('backbone')">Backbone</button>
-        </div>
+<!-- Visu -->
+<!-- <div id="nglview"> -->
+  <br>
+<div class="container">
+    <div class="row">
+      <!-- Vide -->
+    </div>
+    <div class="row">
+      <div class="col">
+          <div id="viewport" style="height: 400px; width:400px " ></div>
       </div>
 
-      <div id="viewport" style="width:500px; height:400px;"></div>
+    <div class="col">
+  <h2>Protein Information</h2>
+
+<div id="proteinInfo">
+  <p id="idpdb"></p>
+  <p id="name"></p>
+</div>
+</div>
+      </div> <!--  FIN row1 -->
+      
+      <div class="col-auto my-1">
+          <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Choose style</option>
+            <option value="1"  onclick="changeRepresentation('cartoon')" >Cartoon</option>
+            <option value="2" onclick="changeRepresentation('surface')">Surface</option>
+            <option value="3"onclick="changeRepresentation('ball+stick')">Ball & Stick</option>
+            <option value="4"onclick="changeRepresentation('backbone')">Backbone</option>  
+          </select>
+        </div>
+      <div class="row">
+          <div class="col">
+            </div>
+</div> <!--  FIN row2 -->
+
+    </div> <!-- container -->
 
       <div id="options">
         <div id="export">
@@ -81,14 +100,9 @@
           <button type="button" onclick="setFullscreen()" title="Exit fullscreen mode using Escape">Fullscreen</button>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 
-    <h2>Protein Information</h2>
-
-    <div id="proteinInfo">
-      <p id="idpdb"></p>
-      <p id="name"></p>
-    </div>
+  
 
     <h2>Graph Informations</h2>
 
@@ -161,6 +175,8 @@
       }
 
     </script>
+
+<script src="../src/style.js"></script>
 </body>
 
 </html>
