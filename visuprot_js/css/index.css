@@ -19,6 +19,10 @@ body
   justify-content: space-around;
 }
 
+#graph
+{
+}
+
 #representationType, #options, #ui1
 {
   display: inline-flex;
