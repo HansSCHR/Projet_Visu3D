@@ -33,34 +33,26 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">About the Authors</a>
                     <a class="dropdown-item" href="#">How to use Protein Viewer</a>
-                    <!-- <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a> -->
                   </div>
                 </li>
                 <!-- <li class="nav-item">
                   <a class="nav-link disabled" href="#">Disabled</a>
                 </li> -->
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Enter a PDB ID" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Display</button>
-              </form>
+                <!-- INPUT PDB ID -->
+                 <div class="element">
+              <input id = "field1" class="form-control mr-sm-2" type="text" spellcheck="false" placeholder="Enter a PDB ID..."/>
+               </div>
+             <div class="element">
+               <button class="btn btn-outline-success my-2 my-sm-0" onclick="displayProtein()">Display</button>
+             </div>
             </div>
           </nav>
 
-
+          
 
     <!-- Visu -->
     <div id="nglview">
-      <div id="ui1">
-        <div class="element">
-            PDB ID: <input id = "field1" type="text" spellcheck="false" placeholder="Enter a PDB ID..."/>
-          </div>
-        <div class="element">
-          <button onclick="displayProtein()">Display</button>
-        </div>
-      </div>
-
       <div id="representationType">
         <div class="element">
           <button type="button" onclick="changeRepresentation('cartoon')">Cartoon</button>
