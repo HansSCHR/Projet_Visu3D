@@ -61,14 +61,16 @@
 
       <div class="row" style="margin-left: 1%">
         <!-- <div class="col"> -->
-          <button type="button" class="btn btn-secondary" onclick="exportPNG()" title="Click to export the PNG of the current representation"><i
+	<button type="button" class="btn btn-secondary" onclick="downloadPDB()" title="Click to download the PDB file"><i
+	      class="far fa-file-image"></i>&nbsp Export PDB</button>
+        <button type="button" class="btn btn-secondary" onclick="exportPNG()" title="Click to export the PNG of the current representation"><i
               class="far fa-file-image"></i>&nbsp Export PNG</button>
-          <div id="fullscreen">
-            <button type="button" class="btn btn-basic" onclick="setFullscreen()" title="Exit fullscreen mode using Escape">
+        <div id="fullscreen">
+          <button type="button" class="btn btn-basic" onclick="setFullscreen()" title="Exit fullscreen mode using Escape">
               <i class="fas fa-arrows-alt"></i>&nbsp Fullscreen</button>
-          </div>
-        <!-- </div> -->
         </div>
+        <!-- </div> -->
+      </div>
 
 
     <div class="row">
@@ -125,7 +127,7 @@
     </div>
     </div> <!--  FIN row2 -->
 
-   
+
 
   </div> <!-- container -->
 
@@ -244,6 +246,14 @@
     function setFullscreen() {
       console.log('Setting fullscreen');
       stage.toggleFullscreen();
+    }
+
+    //Download PDB
+    
+    function downloadPDB(){
+      var idPdb = document.getElementById("field1").value;
+      var url = "https://dx.doi.org/10.2210/pdb"+idPdb+"/pdb"
+      window.open(url,'_blank');
     }
 
   </script>
