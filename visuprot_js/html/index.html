@@ -61,14 +61,16 @@
 
       <div class="row" style="margin-left: 1%">
         <!-- <div class="col"> -->
-	<button type="button" class="btn btn-secondary" onclick="downloadPDB()" title="Click to download the PDB file"><i
-	      class="far fa-file-image"></i>&nbsp Export PDB</button>
         <button type="button" class="btn btn-secondary" onclick="exportPNG()" title="Click to export the PNG of the current representation"><i
               class="far fa-file-image"></i>&nbsp Export PNG</button>
         <div id="fullscreen">
           <button type="button" class="btn btn-basic" onclick="setFullscreen()" title="Exit fullscreen mode using Escape">
               <i class="fas fa-arrows-alt"></i>&nbsp Fullscreen</button>
         </div>
+        <button type="button" class="btn btn-secondary" onclick="downloadPDB()" title="Click to download the PDB file"><i
+              class="far fa-file"></i>&nbsp Export PDB</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadCSV()" title="Click to download a CSV file"><i
+              class="far fa-table"></i>&nbsp Export CSV</button>
         <!-- </div> -->
       </div>
 
@@ -101,7 +103,7 @@
             <option value="1"  onclick="changeRepresentation('cartoon')" >Cartoon</option>
             <option value="2" onclick="changeRepresentation('surface')">Surface</option>
             <option value="3"onclick="changeRepresentation('ball+stick')">Ball & Stick</option>
-            <option value="4"onclick="changeRepresentation('backbone')">Backbone</option>  
+            <option value="4"onclick="changeRepresentation('backbone')">Backbone</option>
           </select>
         </div> -->
     <div class="row">
@@ -249,7 +251,7 @@
     }
 
     //Download PDB
-    
+
     function downloadPDB(){
       var idPdb = document.getElementById("field1").value;
       var url = "https://dx.doi.org/10.2210/pdb"+idPdb+"/pdb"
