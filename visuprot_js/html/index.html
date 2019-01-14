@@ -2,78 +2,97 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Visualisation 3D </title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/index.css">
-    <title>Protein Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <title>Visualisation 3D </title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="../img/logo.png" alt="Logo"  style="width:6%">
-            <a class="navbar-brand" href="#" style="margin-left: 5%"> 3D Protein Viewer</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                
-                <!-- <li class="nav-item">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="../img/logo.png" alt="Logo" style="width:6%">
+    <a class="navbar-brand" href="#" style="margin-left: 5%"> HARVIS Protein Viewer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <!-- <li class="nav-item">
                   <a class="nav-link" href="#">Informations</a>
                 </li> -->
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Information
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#"><i class="fab fa-creative-commons-by"></i>&nbsp  About the Authors</a>
-                    <a class="dropdown-item" href="#"><i class="far fa-question-circle"></i> &nbsp  How to use Protein Viewer</a>
-                  </div>
-                </li>
-                <!-- <li class="nav-item">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Information
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#"><i class="fab fa-creative-commons-by"></i>&nbsp About the Authors</a>
+            <a class="dropdown-item" href="#"><i class="far fa-question-circle"></i> &nbsp How to use Protein Viewer</a>
+          </div>
+        </li>
+        <!-- <li class="nav-item">
                   <a class="nav-link disabled" href="#">Disabled</a>
                 </li> -->
-              </ul>
-                <!-- INPUT PDB ID -->
-                 <div class="element">
-              <input id = "field1" class="form-control mr-sm-2" type="text" spellcheck="false" placeholder="Enter a PDB ID..."/>
-               </div>
-             <div class="element">
-               <button class="btn btn-outline-success my-2 my-sm-0" onclick="displayProtein()">Display</button>
-             </div>
-            </div>
-          </nav>
+      </ul>
+      <!-- INPUT PDB ID -->
+      <div class="element">
+        <input id="field1" class="form-control mr-sm-2" type="text" spellcheck="false" placeholder="Enter a PDB ID..." />
+      </div>
+      <div class="element">
+        <button class="btn btn-outline-success my-2 my-sm-0" onclick="displayProtein()">Display</button>
+      </div>
+    </div>
+  </nav>
 
-          
-<!-- Visu -->
-<!-- <div id="nglview"> -->
+
+  <!-- Visu -->
+  <!-- <div id="nglview"> -->
   <br>
-<div class="container">
+  <div class="container-fluid">
+
+      <div class="row" style="margin-left: 1%">
+        <!-- <div class="col"> -->
+          <button type="button" class="btn btn-secondary" onclick="exportPNG()" title="Click to export the PNG of the current representation"><i
+              class="far fa-file-image"></i>&nbsp Export PNG</button>
+          <div id="fullscreen">
+            <button type="button" class="btn btn-basic" onclick="setFullscreen()" title="Exit fullscreen mode using Escape">
+              <i class="fas fa-arrows-alt"></i>&nbsp Fullscreen</button>
+          </div>
+        <!-- </div> -->
+        </div>
+
+
     <div class="row">
       <!-- Vide -->
     </div>
     <div class="row">
-      <div class="col">
-          <div id="viewport" style="height: 400px; width:400px " ></div>
+      <div class="col-4 ">
+        <!-- <div id="viewport" style="height: 400px; width:400px "></div> -->
+        <div id="viewport" style="width: 500px; height:500px"></div>
+
+
       </div>
 
-    <div class="col">
-  <h2 id="idpdb"></h2>
+      <div class="col">
+        <h2 id="idpdb"></h2>
 
-<div id="proteinInfo">
-  <p id="idpdb"></p>
-  <p id="name"></p>
-</div>
-</div>
-      </div> <!--  FIN row1 -->
-      
-      <!-- <div class="col-auto my-1">
+        <div id="proteinInfo">
+          <p id="idpdb"></p>
+          <p id="name"></p>
+        </div>
+      </div>
+    </div> <!--  FIN row1 -->
+
+    <!-- <div class="col-auto my-1">
           <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
             <option selected></i>&nbsp Choose style...</option>
@@ -83,117 +102,153 @@
             <option value="4"onclick="changeRepresentation('backbone')">Backbone</option>  
           </select>
         </div> -->
-
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-outline-dark active">
-              <input type="radio" autocomplete="off" checked  > <option value="1"  onclick="changeRepresentation('cartoon')" >Cartoon</option>
-            </label>
-            <label class="btn btn-outline-dark">
-              <input type="radio"  autocomplete="off" > <option value="2" onclick="changeRepresentation('surface')">Surface</option>
-            </label>
-            <label class="btn btn-outline-dark">
-              <input type="radio"  autocomplete="off"> <option value="3"onclick="changeRepresentation('ball+stick')">Ball & Stick</option>
-            </label>
-            <label class="btn btn-outline-dark">
-                <input type="radio"  autocomplete="off">  <option value="4"onclick="changeRepresentation('backbone')">Backbone</option>  
-              </label>
-          </div>
-    
-</div> <!--  FIN row2 -->
-
-    </div> <!-- container -->
-
-      <div id="options">
-        <div id="export">
-          <div class="element">
-          </div>
-        </div>
-
-            
-             <button type="button" class="btn btn-secondary" onclick="exportPNG()" title="Click to export the PNG of the current representation"><i class="far fa-file-image"></i>&nbsp Export PNG</button>
-
-
-        <div id="fullscreen">
-          <button type="button" class="btn btn-basic" onclick="setFullscreen()" title="Exit fullscreen mode using Escape"> <i class="fas fa-arrows-alt"></i>&nbsp Fullscreen</button>
-        </div>
+    <div class="row">
+<div class="col col-lg-2">
+      <div class="btn-group btn-group-toggle " data-toggle="buttons">
+        <label class="btn btn-outline-dark active">
+          <input type="radio" autocomplete="off" checked>
+          <option value="1" onclick="changeRepresentation('cartoon')">Cartoon</option>
+        </label>
+        <label class="btn btn-outline-dark">
+          <input type="radio" autocomplete="off">
+          <option value="2" onclick="changeRepresentation('surface')">Surface</option>
+        </label>
+        <label class="btn btn-outline-dark">
+          <input type="radio" autocomplete="off">
+          <option value="3" onclick="changeRepresentation('ball+stick')">Ball & Stick</option>
+        </label>
+        <label class="btn btn-outline-dark">
+          <input type="radio" autocomplete="off">
+          <option value="4" onclick="changeRepresentation('backbone')">Backbone</option>
+        </label>
       </div>
-    <!-- </div> -->
-
-  
-
-    <h2>Graph Informations</h2>
-
-    <div id="graph">
-      <img src="../graph.png" alt="graph" height="400px">
     </div>
+    </div> <!--  FIN row2 -->
 
-    <!-- Infos -->
+   
 
-    <script src="https://unpkg.com/ngl"></script>
-    <script>
-      var stage = new NGL.Stage("viewport");
-      var rep;
+  </div> <!-- container -->
 
-      function displayProtein(){
-        var idPdb = document.getElementById("field1").value;
-        console.log(idPdb);
-        // Deletes the previous stage component
-        if(stage.compList[0]!=null){stage.compList[0].dispose();}
-        // Loads new stage component
-        stage.loadFile("rcsb://"+idPdb).then(function (component) {
+
+
+  <!-- </div> -->
+
+
+
+  <h2>Graph Informations</h2>
+
+  <div id="graph" style="width:500px;height:250px; ">
+      <canvas id="myChart" width="400" height="400" style="background-color: white"></canvas>
+      <script>
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+              datasets: [{
+                  label: '# of Votes',
+                  data: [12, 19, 3, 5, 2, 3],
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255,99,132,1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+      </script>
+  </div>
+
+
+
+  <!-- Infos -->
+
+  <script src="https://unpkg.com/ngl"></script>
+  <script>
+    var stage = new NGL.Stage("viewport");
+    var rep;
+
+    function displayProtein() {
+      var idPdb = document.getElementById("field1").value;
+      console.log(idPdb);
+      // Deletes the previous stage component
+      if (stage.compList[0] != null) { stage.compList[0].dispose(); }
+      // Loads new stage component
+      stage.loadFile("rcsb://" + idPdb).then(function (component) {
         // Add a "cartoon" representation to the structure component
-        stage.compList[0]=component;
+        stage.compList[0] = component;
         rep = component.addRepresentation("cartoon");
         // Provides a "good" view of the structure
         component.autoView();
         // Display protein info
-        document.getElementById("idpdb").innerHTML = "ID PDB : "+component.structure.id;
-        document.getElementById("name").innerHTML = "Name : "+component.structure.title;
+        document.getElementById("idpdb").innerHTML = "ID PDB : " + component.structure.id;
+        document.getElementById("name").innerHTML = "Name : " + component.structure.title;
         console.log(component.structure.header);
-        });
-      }
+      });
+    }
 
-      // Change Representation Type
+    // Change Representation Type
 
-      function changeRepresentation(repType){
-        rep.setVisibility(false);
-        console.log("Displaying "+repType+" representation");
-        rep = stage.compList[0].addRepresentation(repType, {
-          color: 'chainindex',
-          colorReverse: true
-        })
-        stage.compList[0].addRepresentation('licorice', {
-          sele: 'ligand',
-          scale: 3.0
-        })
-        stage.compList[0]=component;
-        component.autoView();
-      }
+    function changeRepresentation(repType) {
+      rep.setVisibility(false);
+      console.log("Displaying " + repType + " representation");
+      rep = stage.compList[0].addRepresentation(repType, {
+        color: 'chainindex',
+        colorReverse: true
+      })
+      stage.compList[0].addRepresentation('licorice', {
+        sele: 'ligand',
+        scale: 3.0
+      })
+      stage.compList[0] = component;
+      component.autoView();
+    }
 
-      // Export functions
+    // Export functions
 
-      function exportPNG(){
-        console.log('Exporting as PNG');
-        stage.makeImage( {
-            factor: 1,
-            antialias: true,
-            trim: false,
-            transparent: false
-          } ).then( function( blob ){
-          NGL.download( blob, "screenshot.png" );
-        } );
-      }
+    function exportPNG() {
+      console.log('Exporting as PNG');
+      stage.makeImage({
+        factor: 1,
+        antialias: true,
+        trim: false,
+        transparent: false
+      }).then(function (blob) {
+        NGL.download(blob, "screenshot.png");
+      });
+    }
 
-      // Fullscreen
+    // Fullscreen
 
-      function setFullscreen(){
-        console.log('Setting fullscreen');
-        stage.toggleFullscreen();
-      }
+    function setFullscreen() {
+      console.log('Setting fullscreen');
+      stage.toggleFullscreen();
+    }
 
-    </script>
+  </script>
 
-<script src="../src/style.js"></script>
+  <script src="../src/style.js"></script>
 </body>
 
 </html>

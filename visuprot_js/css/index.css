@@ -6,7 +6,7 @@ Fichier CSS de la page d'accueil de l'outil de visu
 body
 {
   font-family: Rubik-Regular;
-  text-align: center;
+  /* text-align: center; */
   background-color: silver;
 }
 
