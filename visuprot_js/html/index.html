@@ -42,13 +42,61 @@
     </div>
     <div class="row">
 
-      <div class= "col-4"></div>
+      
       <div class="col-4 ">
         <!-- <div id="viewport" style="height: 400px; width:400px "></div> -->
         <div id="viewport" style="width: 500px; height:500px"></div>
-
-
-      </div>
+       </div> <!-- fin col -->
+<div class="col-2 toolbox">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="Hydrogen">
+    <label class="form-check-label" for="defaultCheck1">Hydrogen</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="sidechainAttached">
+    <label class="form-check-label" for="defaultCheck1">sidechainAttached</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="label">
+    <label class="form-check-label" for="defaultCheck1">label</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="hydrophobic">
+    <label class="form-check-label" for="defaultCheck1">Hydrophobic</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="weak_hbond">
+    <label class="form-check-label" for="defaultCheck1">weak hbond</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="w-x_hbond">
+    <label class="form-check-label" for="defaultCheck1">water-water hbond</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="b-b_hbond">
+    <label class="form-check-label" for="defaultCheck1">backbone-backbone hbond</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="halogen_bond">
+    <label class="form-check-label" for="defaultCheck1">halogen bond</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="metal_interaction">
+    <label class="form-check-label" for="defaultCheck1">metal interaction</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="salt_bridge">
+    <label class="form-check-label" for="defaultCheck1">salt bridge</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="cation-pi">
+    <label class="form-check-label" for="defaultCheck1">cation-pi</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="pi-stacking">
+    <label class="form-check-label" for="defaultCheck1">pi-stacking</label>
+  </div>
+</div>
 
       <div class="col">
         <h2 id="idpdb"></h2>
@@ -153,7 +201,6 @@
   <!-- Info -->
 
   <script src="https://unpkg.com/ngl"></script>
-  <script src="src/LigandViewer.js"></script>
   <script>
     var stage = new NGL.Stage("viewport");
     var rep;
@@ -223,25 +270,12 @@
       window.open(url,'_blank');
     }
 
-    function downloadCSV(){
-      const rows = [
-        ["name1", "city1", "some other info"],
-        ["name2", "city2", "more info"]
-      ];
-      let csvContent = "data:text/csv;charset=utf-8,";
-      rows.forEach(function(rowArray){
-        let row = rowArray.join(",");
-        csvContent += row + "\r\n";
-      });
-      var encodedUri = encodeURI(csvContent);
-      window.open(encodedUri);
-    }
-
   </script>
 
 </body>
-<script src="../src/style.js"></script>
-<script src="../src/navbar.js"></script>
+<script src="/src/style.js"></script>
+<!-- <script src="src/ligandViewer.js"></script> -->
+<script src="/src/navbar.js"></script>
 
 
 </html>
