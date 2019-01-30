@@ -1,0 +1,56 @@
+<meta charset="utf-8" />
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
+        <img class="img-responsive" src="../img/logo.svg" alt="Logo" style="width: 6%">
+        <a class="navbar-brand" href="#" style="margin-left: 5%"> HARVI Protein Viewer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+    
+            <li class="nav-item">
+                      <a class="nav-link" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" href="#">Interaction visualization</a>
+                    </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">Information</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#"><i class="fab fa-creative-commons-by"></i>&nbsp About the Authors</a>
+                <a class="dropdown-item" href="#"><i class="far fa-question-circle"></i> &nbsp How to use Protein Viewer</a>
+              </div>
+            </li>
+          </ul>
+          <!-- INPUT PDB ID -->
+          <div class="element">
+            <input id="field1" class="form-control mr-sm-2" type="text" spellcheck="false" placeholder="Enter a PDB ID..." />
+          </div>
+          <div class="element">
+            <button class="btn btn-outline-success my-2 my-sm-0" onclick="displayProtein()">Display</button>
+          </div>
+        </div>
+      </nav>
+
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-5">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                <div class="card card-body">
+                        <form>
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Protein 1</label>
+                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter PDB ID">
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1">Protein 2</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter PDB ID">
+                                </div>
+                                <!-- <div class="form-check">
+                                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>-->
+                                <button type="submit" class="btn btn-primary">Submit</button> 
+                              </form>                </div>
+            </div>
+        </div>
+    </div>
