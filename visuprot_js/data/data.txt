@@ -1,1 +1,4 @@
-
+InteractionIDPDB  UniprotID_A UniprotID_B UniprotName_A UniprotName_B GeneName_A  GeneName_B  domainA domainB Ligand  Method  Publi 
+6F1T              A0JNT9      P35279      BICL1_MOUSE   RAB6A_MOUSE   Bicdl1      Rab6a                                       20360680 
+4L4H              E9Q401      E9Q401      RYR2_MOUSE    RYR2_MOUSE    Ryr2        Ryr2                                X-Ray Diffraction
+3HRW              P01942      P01942      HBA_MOUSE     HBA_MOUSE     Hba         Hba                                 X-Ray Diffraction
